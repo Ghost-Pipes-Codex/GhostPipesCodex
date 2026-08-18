@@ -1,4 +1,4 @@
-# 🚩 Open Flags — Chapter 01 (v2.0)
+# 🚩 Open Flags — Chapter 01 (v2.1)
 
 Running list of unresolved decisions and unconfirmed assumptions. Ask Claude for this list anytime — "what are the flags."
 
@@ -11,6 +11,16 @@ Running list of unresolved decisions and unconfirmed assumptions. Ask Claude for
 7. ~~1.8 Stage Snake Mapping sync~~ — RESOLVED. Synced with 1.4.
 8. ~~SC16-I Inputs 9–10~~ — RESOLVED. Vocal/gain processing moved to software (BLEASS Vox + Neural DSP Mantra).
 9. **New Synth Bay controller specs** — KeyLab MkII 61, Native Instruments Maschine, Expressive E Touché SE, and Novation Launch Control XL Mk3 were added using known public product specs, but exact model numbers and Acasis hub port assignments are assumptions, not stage-verified. Specifically: (a) exact Maschine model — "Mk3" hardware assumed; (b) exact Novation unit — "Launch Control XL Mk3" assumed. See [[01.6-synth-bay]].
-10. **Unidentified downloaded plugins** — Annulus, Chippo, Crow Hill, Double Freak, Gneiss, Pathfinder, Retrospect, Scintillate, and the TUG IT Glicento suite (2Rule, TugGlicento, TugMoveEffect, TugPhonon) are logged as Owned, but maker and functional role are unconfirmed for all except Tritik Krush. See [[01.7-workstation]].
+10. **Unidentified downloaded plugins** — Annulus, Chippo, Crow Hill Pocket Strings, Double Freak, Gneiss, Pathfinder, Retrospect, Scintillate, and the TUG IT Glicento suite (2Rule, TugGlicento, TugMoveEffect, TugPhonon) are logged as Owned, but maker and functional role are unconfirmed for all except Crow Hill Pocket Strings (name/maker clarified in v2.1). *(Tritik Krush, previously the one confirmed exception, was dropped from the manifest in v2.1 — see flag #13.)* See [[01.7-workstation]].
 11. **Evolve Alloy Lite / UJAM Mellow 2** — logged as Owned; maker (for Alloy Lite) and specific role/category are unconfirmed placeholders.
 12. **TODO — Plugin inventory audit from the Dell 7550.** Once all downloaded plugins are installed on "The Commodore," connect that machine via the Claude desktop app and grant access to the VST3/CLAP install folders (typically `C:\Program Files\Common Files\VST3`, `C:\Program Files\Common Files\CLAP`, plus vendor-specific folders). Claude can then cross-check installed files against the manifest in [[01.7-workstation]] — flagging anything installed-but-undocumented or documented-but-missing. This is inference from filenames, not a guaranteed source of truth (no visibility into license/activation status) — worth a manual glance at ambiguous results.
+13. **v2.1 plugin manifest rebuild** (raised while folding in the curated Plug In Matrix, 102 titles):
+    * ~~Arturia Analog Lab Pro~~ — RESOLVED. Jeremy confirmed this is genuinely the Pro edition (owned separately/upgraded), distinct from the base "Analog Lab V" that Arturia's public KeyLab MkII bundle page lists.
+    * ~~Tritik Krush~~ — RESOLVED. Confirmed dropped — no longer part of the owned inventory. Removed from [[01.7-workstation]].
+    * ~~Baby Audio Atoms, United Plugins Relooper, BEATSURFING VRAC+~~ — RESOLVED. Jeremy confirmed all three were intentional purchases; the moves from Master Wishlist to Owned in [[01.7-workstation]] stand as-is.
+    * **Hardware-bundle origin still unconfirmed** for: GForce Heritage Synths, UVI Model D, Audiomodern OPX, Loopcloud, Universal Audio Empirical Labs EL8 Distressor. None of these appeared in the official Novation Launchkey mk4 or Arturia KeyLab MkII bundle lists checked against the web — worth confirming where they actually came from (a different promo, Plugin Boutique giveaway, etc.) since the matrix tags them `HARDWARE TIED`.
+    * **NI "The Gentleman"** — no price/location filled in on the source sheet. Possibly bundled inside NI Komplete 15 Select, but not confirmed.
+    * **Baby Audio Complete Bundle** (still on the Master Wishlist) — now that Atoms is confirmed independently owned, worth confirming whether the Complete Bundle wishlist entry still makes sense as-is or should be re-scoped.
+    * **"Focus Time"** — appears in the v2.1 matrix as `DRIVE`/`FREE`. The v2.0 manifest explicitly excluded a "focus-time-windows..." download as a non-audio productivity app, not a plugin. Likely the same item resurfacing — recommend excluding again unless it's actually meant to be tracked.
+    * **Several new free/lite titles have unconfirmed maker or exact role** — Loopmix, Haze, Lineage Percussion, Drumbo Jr, UJAM FLUXX, UJAM ROWDY 2 (role/style), MSoundFactoryPlayer, Reaktor Synthesizer Bundle (which specific instruments), Bitwig Studio 8-Track (intended use case alongside Ableton).
+    See [[01.7-workstation]] Section III for where each of these landed in the manifest.
