@@ -5,6 +5,7 @@ Ongoing Ghost Pipes Source of Truth — hardware, DAW, MIDI, and software planni
 ## Structure
 - `chapter-01/` — Chapter 01: The Manifest (physical hardware "Ground Truth"). Start at `chapter-01/00-README.md`. Open decisions live in `chapter-01/open-flags.md`.
 - `exports/` — generated, non-canonical reading copies (PDFs, etc.) compiled from the markdown source. Never hand-edit anything in here — regenerate from `chapter-01/` instead.
+- `SETUP/COMMODORE/` — local machine setup docs & scripts for "The Commodore" workstation (see `chapter-01/01.7-workstation.md`). Operational, not Ground Truth; routine logs stay local (gitignored).
 - Future chapters get their own top-level folder (`chapter-02/`, etc.) following the same pattern.
 
 ## Editing workflow

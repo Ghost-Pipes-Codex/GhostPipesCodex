@@ -8,3 +8,7 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# SETUP/COMMODORE — keep routine machine-generated logs local only
+SETUP/COMMODORE/logs/*
+!SETUP/COMMODORE/logs/.gitkeep
