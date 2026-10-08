@@ -6,6 +6,8 @@
    mention is reported unless the line says it is not owned / not confirmed /
    previously / struck through (~~). open-flags.md is exempt (flags discuss these).
 2. The version in chapter-01/00-README.md and chapter-01/open-flags.md should match.
+3. scripts/compiled-header.md should have a revision note for the current version
+   (look for "v{version} revision note") — this is the hand-written step on a version bump.
 
 Output uses GitHub Actions annotation syntax (::warning file=...,line=...::), which
 is also readable in a plain terminal.
@@ -77,7 +79,16 @@ def check_versions() -> int:
     return 0
 
 
+def check_header_note() -> int:
+    version = title_version(CHAPTER / "00-README.md")
+    header = (ROOT / "scripts" / "compiled-header.md").read_text(encoding="utf-8")
+    if version and f"v{version} revision note" not in header:
+        print(f"::warning file=scripts/compiled-header.md,line=1::No 'v{version} revision note' in the compiled-file header. Add one describing what changed in v{version} (or ask Claude to).")
+        return 1
+    return 0
+
+
 if __name__ == "__main__":
-    total = check_not_owned() + check_versions()
+    total = check_not_owned() + check_versions() + check_header_note()
     print(f"Consistency check finished: {total} warning(s).")
     sys.exit(0)
