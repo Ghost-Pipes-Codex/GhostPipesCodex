@@ -1,0 +1,53 @@
+name: Rebuild compiled edition
+
+# When chapter-01 (or the build scripts) change on main:
+#   1. run the consistency check (warnings only, never blocks),
+#   2. rebuild GHOST_PIPES_CODEX_V{version}_CHAPTER_01.md from the per-section files,
+#   3. commit it back if it changed.
+# The bot's own commit does not re-trigger this workflow (GITHUB_TOKEN pushes never do,
+# and the compiled file is outside the watched paths).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "chapter-01/**"
+      - "scripts/**"
+  pull_request:
+    paths:
+      - "chapter-01/**"
+      - "scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: compiled-edition
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Consistency check (warnings only)
+        run: python3 scripts/check_consistency.py
+
+      - name: Rebuild compiled edition
+        run: python3 scripts/build_compiled.py
+
+      - name: Commit if changed
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- 'GHOST_PIPES_CODEX_V*_CHAPTER_01.md'
+          if git diff --cached --quiet; then
+            echo "Compiled edition already up to date."
+          else
+            git commit -m "Rebuild compiled edition from chapter-01 (automated)"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
